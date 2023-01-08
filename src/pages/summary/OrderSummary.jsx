@@ -6,7 +6,7 @@ import { formatCurrency } from '../../utilities'
 export default function OrderSummary({ setOrderPhase }) {
   const { totals, optionCounts } = useOrderDetails()
 
-  const scoopArray = Object.entries(optionCounts.scoops)
+  const scoopArray = Object.entries(optionCounts.scoops) // e.g [['chocolate', 2], ['vanilla'], 3]
   const scoopList = scoopArray.map(([key, value]) => (
     <li key={key}>
       {value} {key}

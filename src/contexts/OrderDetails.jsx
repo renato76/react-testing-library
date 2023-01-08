@@ -43,7 +43,7 @@ export function OrderDetailsProvider(props) {
     //total the values in the array
     const totalCount = countsArray.reduce((total, value) => total + value, 0 )
 
-    // multiply the total number of items by the rice for this item
+    // multiply the total number of items by the price for this item
     return totalCount * pricePerItem[optionType]
   }
 
