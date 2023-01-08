@@ -1,13 +1,12 @@
-
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import Row from 'react-bootstrap/Row'
-import ScoopOption from './ScoopOption'
-import ToppingOption from './ToppingOption'
-import AlertBanner from '../common/AlertBanner'
-import { pricePerItem } from '../../constants'
-import { formatCurrency } from '../../utilities/index'
-import { useOrderDetails } from '../../contexts/OrderDetails'
+import axios from "axios"
+import { useEffect, useState } from "react"
+import Row from "react-bootstrap/Row"
+import ScoopOption from "./ScoopOption"
+import ToppingOption from "./ToppingOption"
+import AlertBanner from "../common/AlertBanner"
+import { pricePerItem } from "../../constants"
+import { formatCurrency } from "../../utilities"
+import { useOrderDetails } from "../../contexts/OrderDetails"
 
 export default function Options({ optionType }) {
   const [items, setItems] = useState([])
@@ -15,8 +14,9 @@ export default function Options({ optionType }) {
   const { totals } = useOrderDetails()
 
   useEffect(() => {
-    axios.get(`http://localhost:3030/${optionType}`)
-      .then(response => setItems(response.data))
+    axios
+      .get(`http://localhost:3030/${optionType}`)
+      .then((response) => setItems(response.data))
       .catch((error) => setError(true))
   }, [optionType])
 
